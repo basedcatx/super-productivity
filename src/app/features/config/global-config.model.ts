@@ -369,9 +369,7 @@ export type GlobalConfigSectionKey = keyof GlobalConfigState | 'EMPTY';
 // `updateGlobalConfigSection` action payloads (which would create phantom ops
 // in the sync log).
 export type GlobalConfigFormSectionKey =
-  | GlobalConfigSectionKey
-  | 'taskWidget'
-  | 'focusModeLocal';
+  GlobalConfigSectionKey | 'taskWidget' | 'focusModeLocal';
 
 export type GlobalSectionConfig =
   | MiscConfig
@@ -396,10 +394,7 @@ export interface LimitedFormlyFieldConfig<FormModel> extends Omit<
 }
 
 export type CustomCfgSection =
-  | 'FILE_IMPORT_EXPORT'
-  | 'JIRA_CFG'
-  | 'OPENPROJECT_CFG'
-  | 'CLIPBOARD_IMAGES_CFG';
+  'FILE_IMPORT_EXPORT' | 'JIRA_CFG' | 'OPENPROJECT_CFG' | 'CLIPBOARD_IMAGES_CFG';
 
 export interface ConfigSectionAction {
   label: string;

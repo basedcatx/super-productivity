@@ -166,14 +166,12 @@ const handleRestoreTask = (
 
   const tagUpdates = Object.entries(tagTaskMap)
     .filter(([tagId]) => state[TAG_FEATURE_NAME].entities[tagId])
-    .map(
-      ([tagId, taskIds]): Update<Tag> => ({
-        id: tagId,
-        changes: {
-          taskIds: unique([...getTag(updatedState, tagId).taskIds, ...taskIds]),
-        },
-      }),
-    );
+    .map(([tagId, taskIds]): Update<Tag> => ({
+      id: tagId,
+      changes: {
+        taskIds: unique([...getTag(updatedState, tagId).taskIds, ...taskIds]),
+      },
+    }));
 
   return updateTags(updatedState, tagUpdates);
 };

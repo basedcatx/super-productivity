@@ -75,8 +75,7 @@ describe('DialogEditTaskRepeatCfgComponent', () => {
       targetDate?: string;
     },
     getRepeatCfgReturnValue?:
-      | Observable<TaskRepeatCfg | undefined>
-      | Subject<TaskRepeatCfg>,
+      Observable<TaskRepeatCfg | undefined> | Subject<TaskRepeatCfg>,
     renderTemplate = false,
   ): Promise<ComponentFixture<DialogEditTaskRepeatCfgComponent>> => {
     mockDialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);

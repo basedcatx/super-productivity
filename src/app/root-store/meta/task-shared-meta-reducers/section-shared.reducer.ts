@@ -368,8 +368,7 @@ const ACTION_HANDLERS: Record<string, Handler> = {
     >;
     const task = state[TASK_FEATURE_NAME].entities[taskId] as Task | undefined;
     const targetParent = state[TASK_FEATURE_NAME].entities[targetParentId] as
-      | Task
-      | undefined;
+      Task | undefined;
     if (!canApplyConvertToSubTask(task, targetParent)) {
       return state;
     }

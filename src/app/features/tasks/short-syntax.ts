@@ -341,12 +341,10 @@ const parseTagChanges = (
 
       if (mode === 'replace') {
         // Check if arrays arent the same
-        if (
-          !(
-            task.tagIds.length === matchingTagIds.length &&
-            task.tagIds.every((val, i) => val === matchingTagIds[i])
-          )
-        ) {
+        if (!(
+          task.tagIds.length === matchingTagIds.length &&
+          task.tagIds.every((val, i) => val === matchingTagIds[i])
+        )) {
           taskChanges.tagIds = matchingTagIds;
         }
       } else {

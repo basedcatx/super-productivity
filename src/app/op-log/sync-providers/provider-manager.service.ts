@@ -27,10 +27,7 @@ import { loadSyncProviders } from './sync-providers.factory';
  * Sync status change payload type
  */
 export type SyncStatusChangePayload =
-  | 'UNKNOWN_OR_CHANGED'
-  | 'ERROR'
-  | 'IN_SYNC'
-  | 'SYNCING';
+  'UNKNOWN_OR_CHANGED' | 'ERROR' | 'IN_SYNC' | 'SYNCING';
 
 /**
  * Service for managing sync providers.

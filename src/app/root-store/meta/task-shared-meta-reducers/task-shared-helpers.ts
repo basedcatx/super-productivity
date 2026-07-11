@@ -63,14 +63,12 @@ export const removeTasksFromAllTags = (
   const tagUpdates = (state[TAG_FEATURE_NAME].ids as string[])
     .map((tagId) => state[TAG_FEATURE_NAME].entities[tagId])
     .filter((tag): tag is Tag => !!tag && tag.taskIds.some((id) => taskIdSet.has(id)))
-    .map(
-      (tag): Update<Tag> => ({
-        id: tag.id,
-        changes: {
-          taskIds: removeTasksFromList(tag.taskIds, taskIds),
-        },
-      }),
-    );
+    .map((tag): Update<Tag> => ({
+      id: tag.id,
+      changes: {
+        taskIds: removeTasksFromList(tag.taskIds, taskIds),
+      },
+    }));
   return updateTags(state, tagUpdates);
 };
 

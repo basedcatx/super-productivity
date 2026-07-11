@@ -37,6 +37,7 @@ let customUrl: string;
 let isDisableTray = false;
 let forceDarkTray = false;
 let wasUserDataDirSet = false;
+let isMinimized = false;
 
 if (IS_DEV) {
   log('Starting in DEV Mode!!!');
@@ -105,6 +106,11 @@ export const startApp = (): void => {
     if (val && val.includes('--disable-tray')) {
       isDisableTray = true;
       log('Disable tray icon');
+    }
+
+    if (val && val.includes('--minimized')) {
+      isMinimized = true;
+      log('Minimized to tray icon');
     }
 
     if (val && val.includes('--force-dark-tray')) {
@@ -512,6 +518,7 @@ export const startApp = (): void => {
       ICONS_FOLDER,
       quitApp,
       customUrl,
+      isMinimized,
     });
 
     initPluginOAuth(mainWin);

@@ -1462,8 +1462,7 @@ export class SyncWrapperService {
     this._shouldPromptEncryptionAfterSetupSync = false;
 
     const cfg = (await provider.privateCfg.load()) as
-      | { isEncryptionEnabled?: boolean; encryptKey?: string }
-      | undefined;
+      { isEncryptionEnabled?: boolean; encryptKey?: string } | undefined;
     if (cfg?.isEncryptionEnabled && cfg?.encryptKey) {
       SyncLog.log('SuperSync encryption already enabled, skipping');
       return;
@@ -1525,8 +1524,7 @@ export class SyncWrapperService {
         return;
       }
       const cfgAfterWait = (await providerAfterWait.privateCfg.load()) as
-        | { isEncryptionEnabled?: boolean; encryptKey?: string }
-        | undefined;
+        { isEncryptionEnabled?: boolean; encryptKey?: string } | undefined;
       if (cfgAfterWait?.isEncryptionEnabled && cfgAfterWait?.encryptKey) {
         SyncLog.log('Encryption enabled while waiting — skipping prompt');
         return;

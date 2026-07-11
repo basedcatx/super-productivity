@@ -118,9 +118,11 @@ export const createWindow = async ({
   quitApp,
   app,
   customUrl,
+  isMinimized = false,
 }: {
   IS_DEV: boolean;
   ICONS_FOLDER: string;
+  isMinimized: boolean;
   quitApp: () => void;
   app: App;
   customUrl?: string;
@@ -277,7 +279,9 @@ export const createWindow = async ({
     return allowedPermissions.includes(permission);
   });
 
-  mainWindowState.manage(mainWin);
+  if (!isMinimized) {
+    mainWindowState.manage(mainWin);
+  }
   setWasMaximizedBeforeHide(mainWin.isMaximized());
 
   // Fix for #7276: electron-window-state saves state in its `closed` handler,
@@ -337,7 +341,9 @@ export const createWindow = async ({
 
   // show gracefully
   mainWin.once('ready-to-show', () => {
-    mainWin.show();
+    if (!isMinimized) {
+      mainWin.show();
+    }
 
     // Workaround for Windows phantom focus bug (electron#20464):
     // show() can silently fail to acquire keyboard focus after reboot.

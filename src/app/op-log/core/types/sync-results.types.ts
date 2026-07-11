@@ -93,9 +93,7 @@ export interface FileSnapshotDownloadResult extends DownloadResultBase {
 }
 
 export type DownloadResult =
-  | DownloadUnavailableResult
-  | SuperSyncDownloadResult
-  | FileSnapshotDownloadResult;
+  DownloadUnavailableResult | SuperSyncDownloadResult | FileSnapshotDownloadResult;
 
 /**
  * Result of an upload operation. May contain piggybacked operations
